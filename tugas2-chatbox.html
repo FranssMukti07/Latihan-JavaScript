@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Box</title>
+    <style>
+        * {
+            padding: 0;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+            width: 50%;
+        }
+
+        .container {
+            border: 2px solid black;
+            padding: 3px;
+        }
+    </style>
+    <script>
+
+        function kirim() {
+
+            let new_p, isi_chat, chat_box, input
+            input = document.getElementById("input").value
+
+            // buat node
+            new_p = document.createElement("p") // membuat elemen p yang baru ( <p> </p> )
+            isi_chat = document.createTextNode(input) // membuat text/isi untuk mengambil value dari inputan
+
+            // menambah child ke parent nya --> elemen
+            new_p.appendChild(isi_chat)
+
+            // seleksi parent untuk ditambah
+            chat_box = document.getElementById("container")
+
+            // menambah child di parent
+            chat_box.appendChild(new_p)
+
+            let bersih
+            bersih = document.getElementById("input").value = ""
+
+        }
+    </script>
+</head>
+
+<body style="margin: 0.5cm;">
+    <center>
+        <div class="container-fluid">
+            <div id="container" class="container" style="height: 100%; width: 100%; text-align: left; background-color: whitesmoke;">
+                <p>start the chat</p>
+            </div>
+
+            <div class="container" style="width: 100%; height: 5%;display: flex; justify-content: space-between;">
+                <input type="text" name="" id="input" style="width: 80%;">
+                <input type="submit" value="Kirim" onclick="kirim()" style="width: 18%;">
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>

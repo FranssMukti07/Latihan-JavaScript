@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Kurs IDR - Dollar</title>
+    <script>
+        function kurs(){
+            let x = document.getElementById("nilai").value;
+            let y = document.getElementById("select").value;
+            let hsl;
+            if (y=="dollar") {
+                hsl = x * 14650;
+                document.getElementById("hasil").innerHTML = "Rp. " + hsl + ",-";
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            Kurs Rupiah - Dollar
+        </legend>
+        <table style="border: 2px solid black;">
+            <tr>
+                <td>Masukkan Nilai</td>
+                <td>Valas</td>
+                <td>Nilai Rupiah</td>
+            </tr>
+            <tr>
+                <td><input type="text" value="0" id="nilai" onchange="kurs()"/></td>
+                <td>
+                    <select id="select" onclick="kurs()">
+                        <option value="dollar">Dollar</option>
+                    </select>
+                </td>
+                <td><strong id="hasil"></strong></td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+</html>

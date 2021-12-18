@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Biaya Parkir</title>
+    <script>
+        function parkir() {
+            let x = document.getElementById("masuk").value
+            let y = document.getElementById("keluar").value
+            let z
+            z = Math.abs(y - x);
+            let lama = document.getElementById("lama").innerHTML = z + " jam";
+            if (z <= 2) {
+                let biaya = document.getElementById("biaya").innerHTML = "Rp 3.000,-"
+            }
+            else if (z > 2) {
+                let biaya, z1, bayar
+                z1 = Math.ceil(z)
+                biaya = 3000
+                bayar = biaya + (1000 * (z1 - 2))
+                let biaya1 = document.getElementById("biaya").innerHTML = "Rp " + bayar + ",-"
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            Kalkulator Biaya Parkir
+        </legend>
+        <table style="border: 2px solid black;">
+            <tr>
+                <td style="text-align: center;">Jam Masuk</td>
+                <td style="text-align: center;">Jam Keluar</td>
+                <td>Lama Parkir</td>
+                <td>Besaran Biaya</td>
+            </tr>
+            <tr>
+                <td><input type="text" value="0" id="masuk" onchange="parkir()"/></td>
+                <td><input type="text" value="0" id="keluar" onchange="parkir()"/></td>
+                <td style="text-align: center;"><p id="lama"></p></td>
+                <td style="text-align: center;"><strong id="biaya"></strong></td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+</html>

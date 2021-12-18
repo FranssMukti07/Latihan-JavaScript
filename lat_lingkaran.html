@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Lingkaran</title>
+    <script>
+        function rumus() {
+            let x, y, z, hsl_luas, hsl_keliling
+            x = document.getElementById("jari2").value
+            hsl_luas = 3.14 * (x * x)
+            hsl_keliling = 2 * 3.14 * x
+            y = document.getElementById("hasil_luas").innerHTML = hsl_luas
+            z = document.getElementById("hasil_keliling").innerHTML = hsl_keliling
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            Kalkulator Lingkaran
+        </legend>
+        <table style="border: 2px solid black;">
+            <thead>
+                <tr>
+                    <td>Phi</td>
+                    <td>Jari-Jari</td>
+                    <td>Luas</td>
+                    <td>Keliling</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3.14</td>
+                    <td><input type="text" value="0" id="jari2" onchange="rumus()"/></td>
+                    <td><strong id="hasil_luas"></strong></td>
+                    <td><strong id="hasil_keliling"></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+</html>
