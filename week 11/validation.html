@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        #submit {
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function red() {
+            document.getElementById("submit").style.backgroundColor = 'red'
+            document.getElementById("submit").style.color = 'white'
+        }
+        function white() {
+            document.getElementById("submit").style.backgroundColor = 'whitesmoke'
+            document.getElementById("submit").style.color = 'black'
+        }
+        function validasi() {
+            let nama_pelanggan = document.getElementById("name").value
+            let email = document.getElementById("email").value
+            let jam = document.getElementById("time").value
+            let tujuan = document.getElementById("dest").value
+            let jumlah = document.getElementById("jml_tiket").value                
+            if (nama_pelanggan == "") {
+                document.getElementById("warn_name").innerHTML = '<p style="color: red; font-size: 15px; ">Nama Pelanggan Tidak Boleh Kosong!!</p>'
+            } else {
+                document.getElementById("warn_name").innerHTML = ''
+            }
+            if (email == "") {
+                document.getElementById("warn_email").innerHTML = '<p style="color: red; font-size: 15px; ">Email Tidak Boleh Kosong!!</p>'
+            } else {
+                document.getElementById("warn_email").innerHTML = ''
+            }
+            
+            if (jam == "") {
+                document.getElementById("warn_time").innerHTML = '<p style="color: red; font-size: 15px; ">Jam Tidak Boleh Kosong!!</p>'
+            } else {
+                document.getElementById("warn_time").innerHTML = ''
+            }
+            
+            if (tujuan == "") {
+                document.getElementById("warn_dest").innerHTML = '<p style="color: red; font-size: 15px; ">Tujuan Tidak Boleh Kosong!!</p>'
+            } else {
+                document.getElementById("warn_dest").innerHTML = ''
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="validasi()" method="get">
+        <fieldset>
+            <legend>Data Pelanggan</legend>
+            <table>
+                <tr>
+                    <td>Nama Pelanggan : </td>
+                    <td><input type="text" placeholder="Masukkan Nama" id="name" pattern="[a-zA-Z ]{1,30}"></td>
+                    <td id="warn_name"></td>
+                </tr>
+                <tr>
+                    <td>Email : </td>
+                    <td><input type="email" placeholder="Masukkan Email" id="email"></td>
+                    <td id="warn_email"></td>
+                </tr>
+                <tr>
+                    <td>Jam Keberangkatan : </td>
+                    <td><input type="time" id="time"></td>
+                    <td id="warn_time"></td>
+                </tr>
+                <tr>
+                    <td>Tujuan Keberangkatan : </td>
+                    <td><input type="text" placeholder="Masukkan Tujuan" id="dest" pattern="[a-zA-Z ]{1,30}"></td>
+                    <td id="warn_dest"></td>
+                </tr>
+                <tr>
+                    <td>Jumlah Tiket : </td>
+                    <td><input type="number" min="1" max="10" value="1" id="jml_tiket"></td>
+                </tr>
+            </table>
+            <button id="submit" type="submit" onmouseover="red()" onmouseout="white()">Submit</button>
+        </fieldset>
+    </form>
+</body>
+</html>

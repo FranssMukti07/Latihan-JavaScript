@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+    <style>
+        #replace {
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        function image() {
+            let gambar = document.getElementById("picker").value
+            if (gambar == "bison") {
+                document.getElementById("replace").innerHTML = '<img src="/img/bison.jpeg" alt="Gambar Bison">'
+            } else if (gambar == "monyet") {
+                document.getElementById("replace").innerHTML = '<img src="/img/monyet.jpeg" alt="Gambar Monyet">'
+            } else if (gambar == "badak") {
+                document.getElementById("replace").innerHTML = '<img src="/img/badak.jpeg" alt="Gambar Badak">'
+            } else if (gambar == "dino") {
+                document.getElementById("replace").innerHTML = '<img src="/img/trex.jpeg" alt="Gambar T-Rex">'
+            } else if (gambar == "hiu") {
+                document.getElementById("replace").innerHTML = '<img src="/img/hiu.jpeg" alt="Gambar Hiu Megalodon">'
+            }
+        }
+    </script>
+</head>
+<body>
+    <select id="picker" onclick="image()" onchange="image()">
+        <option value="" selected disabled>Pilih...</option>
+        <option value="bison">Byson</option>
+        <option value="monyet">Monyet</option>
+        <option value="badak">Badak</option>
+        <option value="dino">T-Rex</option>
+        <option value="hiu">Megalodon</option>
+    </select>
+    <div id="replace"></div>
+</body>
+</html>
